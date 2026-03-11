@@ -35,6 +35,20 @@ const Hero = () => {
     }
   }, [loadedVideos]);
 
+  useEffect(() => {
+    if (!isLoading) return;
+    const prevBodyOverflow = document.body.style.overflow;
+    const prevHtmlOverflow = document.documentElement.style.overflow;
+
+    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = prevBodyOverflow;
+      document.documentElement.style.overflow = prevHtmlOverflow;
+    };
+  }, [isLoading]);
+
   useGSAP(
     () => {
       if (hasClicked) {
@@ -87,7 +101,7 @@ const Hero = () => {
   return (
     <div className="relative h-dvh w-screen overflow-x-hidden">
       {isLoading && (
-        <div className="flex-center absolute z-100 h-dvh w-screen overflow-hidden bg-violet-50">
+        <div className="flex-center fixed inset-0 z-50 h-dvh w-screen overflow-hidden bg-violet-50">
           <div className="three-body">
             <div className="three-body__dot" />
             <div className="three-body__dot" />
@@ -101,25 +115,29 @@ const Hero = () => {
       >
         <div>
           <div className="mask-clip-path absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] z-50 size-64 cursor-pointer overflow-hidden rounded-lg">
-            <div
+            <button
+              type="button"
+              aria-label="Play next trailer"
               onClick={handleMiniVdClick}
-              className="origin-center scale-50 opacity-0 transition-all duration-500 ease-in hover:scale-100 hover:opacity-100"
+              className="origin-center scale-50 border-0 bg-transparent p-0 opacity-0 transition-all duration-500 ease-in hover:scale-100 hover:opacity-100 cursor-pointer"
             >
               <video
                 ref={nextVideoRef}
                 src={getVideoSrc(upcomingVideoIndex)}
+                playsInline
                 loop
                 muted
                 id="current-video"
                 className="size-64 origin-center scale-150 object-cover object-center"
                 onLoadedData={handleVideoLoad}
               />
-            </div>
+            </button>
           </div>
 
           <video
             ref={nextVideoRef}
             src={getVideoSrc(currentIndex)}
+            playsInline
             loop
             muted
             id="next-video"
@@ -128,10 +146,9 @@ const Hero = () => {
           />
 
           <video
-            src={getVideoSrc(
-              currentIndex === totalVideos - 1 ? 1 : currentIndex,
-            )}
+            src={getVideoSrc(currentIndex)}
             autoPlay
+            playsInline
             loop
             muted
             className="absolute left-0 top-0 size-full object-cover object-center"
