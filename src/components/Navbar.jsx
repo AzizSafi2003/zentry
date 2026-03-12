@@ -40,6 +40,8 @@ const NavBar = () => {
   }, [isAudioPlaying]);
 
   useEffect(() => {
+    if (!navContainerRef.current) return;
+
     if (currentScrollY === 0) {
       // Topmost position: show navbar without floating-nav
       setIsNavVisible(true);
