@@ -158,13 +158,13 @@ const Hero = () => {
 
         {/* First heading Replica shown on the elements*/}
         <h1 className="special-font font-zentry uppercase font-black text-5xl sm:right-10 sm:text-7xl md:text-9xl lg:text-[12rem] absolute bottom-5 right-5 z-40 text-blue-75">
-          G<b>a</b>ming
+          <b>Gaming</b>
         </h1>
 
         <div className="absolute left-0 top-0 z-40 size-full">
           <div className="mt-24 px-5 sm:px-10">
             <h1 className="special-font uppercase font-zentry font-black text-5xl sm:right-10 sm:text-7xl md:text-9xl lg:text-[12rem] text-blue-100">
-              redefi<b>n</b>e
+              <b>redefine</b>
             </h1>
 
             <p className="mb-5 max-w-64 font-robert-regular text-blue-100">
@@ -175,7 +175,7 @@ const Hero = () => {
               id="watch-tailer"
               title="Watch Trailer"
               leftIcon={<TiLocationArrow />}
-              containerClass="bg-yellow-300 flex-center gap-1"
+              containerClass="flex-center gap-1 hover:scale-105 duration-200 active:scale-100 glare-button"
             />
           </div>
         </div>
@@ -183,7 +183,7 @@ const Hero = () => {
 
       {/* Second heading Replica shown on scroll */}
       <h1 className="special-font font-zentry uppercase font-black text-5xl sm:right-10 sm:text-7xl md:text-9xl lg:text-[12rem] absolute bottom-5 right-5 text-black">
-        G<b>a</b>ming
+        <b>Gaming</b>
       </h1>
     </div>
   );
