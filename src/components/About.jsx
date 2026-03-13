@@ -38,7 +38,7 @@ const About = () => {
           containerClass="mt-5 !text-black text-center"
         />
 
-        <div className="absolute bottom-[-80dvh] left-1/2 w-full max-w-xl -translate-x-1/2 text-center font-circular-web text-lg md:max-w-136">
+        <div className="absolute bottom-[-95dvh] md:bottom-[-82vh] left-1/2 w-full max-w-xl -translate-x-1/2 text-center font-circular-web text-lg md:max-w-136 px-4">
           <p>The Game of Games begins—your life, now an epic MMORPG</p>
           <p className="text-gray-500">
             Zentry unites every player from countless games and platforms, both

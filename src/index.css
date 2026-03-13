@@ -19,11 +19,22 @@
   --color-yellow-300: #edff66;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   width: 100dvw;
   overflow-x: hidden;
   background-color: #dfdff0;
   font-family: var(--font-general);
+}
+
+html.no-scroll,
+body.no-scroll {
+  overflow: hidden;
+  overscroll-behavior: none;
+  touch-action: none;
 }
 
 @layer base {
@@ -182,6 +193,7 @@ body {
   .contact-clip-path-2 {
     clip-path: polygon(29% 15%, 85% 30%, 50% 100%, 10% 64%);
   }
+
 }
 
 .glare-button::after {
