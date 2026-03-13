@@ -180,6 +180,16 @@ body.no-scroll {
   animation-delay: calc(var(--animation-order) * 0.1s);
 }
 
+.indicator-line {
+  width: 2px;
+  height: 4px;
+  background-color: #dfdff0;
+  border-radius: 2px;
+  display: inline-block;
+  transform: translateY(0);
+  will-change: height, transform;
+}
+
 @keyframes indicator-line {
   0% {
     height: 4px;
