@@ -19,11 +19,22 @@
   --color-yellow-300: #edff66;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   width: 100dvw;
   overflow-x: hidden;
   background-color: #dfdff0;
   font-family: var(--font-general);
+}
+
+html.no-scroll,
+body.no-scroll {
+  overflow: hidden;
+  overscroll-behavior: none;
+  touch-action: none;
 }
 
 @layer base {
@@ -83,18 +94,6 @@ body {
     font-family: var(--font-robert-regular);
   }
 
-  .nav-hover-btn {
-    @apply relative ms-10 font-general text-xs uppercase text-blue-50 after:absolute after:-bottom-0.5 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100 dark:after:bg-white cursor-pointer;
-  }
-
-  .floating-nav {
-    @apply bg-black rounded-lg border;
-  }
-
-  .absolute-center {
-    @apply absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%];
-  }
-
   .flex-center {
     @apply flex justify-center items-center;
   }
@@ -108,40 +107,12 @@ body {
     font-feature-settings: "ss01" on;
   }
 
-  .hero-heading {
-    @apply uppercase font-zentry font-black text-5xl sm:right-10 sm:text-7xl md:text-9xl lg:text-[12rem];
-  }
-
-  .about-subtext {
-    @apply absolute bottom-[-80dvh] left-1/2 w-full max-w-96 -translate-x-1/2 text-center font-circular-web text-lg md:max-w-[34rem];
-  }
-
-  .about-image {
-    @apply absolute left-1/2 top-0 z-20 h-[60vh] w-96 origin-center -translate-x-1/2 overflow-hidden rounded-3xl md:w-[30vw];
-  }
-
-  .animated-title {
-    @apply flex flex-col gap-1 text-7xl uppercase leading-[.8] text-white sm:px-32 md:text-[6rem];
-  }
-
   .animated-word {
     @apply font-zentry font-black opacity-0;
     font-feature-settings: "ss01" on;
     transform: translate3d(10px, 51px, -60px) rotateY(60deg) rotateX(-40deg);
     transform-origin: 50% 50% -150px !important;
     will-change: opacity, transform;
-  }
-
-  .bento-tilt_1 {
-    @apply relative border border-white/20 col-span-2 overflow-hidden rounded-md transition-transform duration-300 ease-out;
-  }
-
-  .bento-tilt_2 {
-    @apply relative col-span-1 row-span-1 overflow-hidden rounded-md transition-transform duration-300 ease-out;
-  }
-
-  .bento-title {
-    @apply uppercase md:text-6xl text-4xl font-black font-zentry;
   }
 
   .story-img-container {
@@ -157,18 +128,6 @@ body {
   .story-img-content {
     @apply absolute w-full md:h-dvh h-[50dvh] opacity-100 left-10 top-16 md:left-0 md:top-10 lg:left-[-300px] lg:top-[-100px];
     transform: translate3d(0, 0, 0) rotateX(0) rotateY(0) rotateZ(0) scale(1);
-  }
-
-  .gallery-img-container {
-    @apply size-64 overflow-hidden bg-violet-300;
-  }
-
-  .gallery-img {
-    @apply size-full bg-cover;
-  }
-
-  .gallery-img-4 {
-    @apply sm:size-80 md:h-96 md:w-[25rem] rounded-lg;
   }
 
   .sword-man-clip-path {
@@ -214,10 +173,6 @@ body {
   100% {
     transform: translateX(260%) skewX(-20deg);
   }
-}
-
-.indicator-line {
-  @apply h-3 w-px rounded-full bg-white transition-all duration-200 ease-in-out;
 }
 
 .indicator-line.active {

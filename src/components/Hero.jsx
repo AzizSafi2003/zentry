@@ -35,20 +35,6 @@ const Hero = () => {
     }
   }, [loadedVideos]);
 
-  useEffect(() => {
-    if (!isLoading) return;
-    const prevBodyOverflow = document.body.style.overflow;
-    const prevHtmlOverflow = document.documentElement.style.overflow;
-
-    document.body.style.overflow = "hidden";
-    document.documentElement.style.overflow = "hidden";
-
-    return () => {
-      document.body.style.overflow = prevBodyOverflow;
-      document.documentElement.style.overflow = prevHtmlOverflow;
-    };
-  }, [isLoading]);
-
   useGSAP(
     () => {
       if (hasClicked) {
@@ -99,7 +85,7 @@ const Hero = () => {
   const getVideoSrc = (index) => `videos/hero-${index}.mp4`;
 
   return (
-    <div className="relative h-dvh w-screen overflow-x-hidden">
+    <div id="nexus" className="relative h-dvh w-screen overflow-x-hidden">
       {isLoading && (
         <div className="flex-center fixed inset-0 z-50 h-dvh w-screen overflow-hidden bg-violet-50">
           <div className="three-body">
