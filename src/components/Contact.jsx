@@ -1,15 +1,18 @@
 import AnimatedTitle from "./AnimatedTitle";
 import Button from "./Button";
 
-const ImageClipBox = ({ src, clipClass }) => (
+const ImageClipBox = ({ src, clipClass, alt = "" }) => (
   <div className={clipClass}>
-    <img src={src} />
+    <img src={src} alt={alt} loading="lazy" decoding="async" />
   </div>
 );
 
 const Contact = () => {
   return (
-    <section id="contact" className="mt-32 mb-16 min-h-96 w-screen px-4 md:px-10">
+    <section
+      id="contact"
+      className="mt-32 mb-16 min-h-96 w-screen px-4 md:px-10"
+    >
       <div className="relative rounded-lg bg-black py-24 text-blue-50 sm:overflow-hidden">
         <div className="absolute -left-20 top-0 hidden h-full w-72 overflow-hidden sm:block lg:left-20 lg:w-96">
           <ImageClipBox

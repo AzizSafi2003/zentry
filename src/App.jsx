@@ -57,7 +57,15 @@ const App = () => {
     };
 
     const preventKeys = (event) => {
-      const keys = ["ArrowUp", "ArrowDown", "PageUp", "PageDown", "Home", "End", " "];
+      const keys = [
+        "ArrowUp",
+        "ArrowDown",
+        "PageUp",
+        "PageDown",
+        "Home",
+        "End",
+        " ",
+      ];
       if (keys.includes(event.key)) {
         event.preventDefault();
       }
@@ -79,8 +87,8 @@ const App = () => {
       document.body.style.position = previousBodyPosition;
       document.body.style.top = previousBodyTop;
       document.body.style.width = previousBodyWidth;
-      document.body.className = previousBodyClass;
-      document.documentElement.className = previousHtmlClass;
+      document.body.classList.remove("no-scroll");
+      document.documentElement.classList.remove("no-scroll");
       document.removeEventListener("wheel", preventScroll, { capture: true });
       document.removeEventListener("touchmove", preventScroll, {
         capture: true,
